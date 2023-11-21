@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/capture.css">
+    <script defer src="../capture.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer" class="outer">
+        outer, once & none-once
+        <div class="middle" target="_blank">
+          middle, capture & none-capture
+          <a class="inner1" href="https://www.mozilla.org" target="_blank">
+            inner1, passive & preventDefault(which is not allowed)
+          </a>
+          <a class="inner2" href="https://developer.mozilla.org/" target="_blank">
+            inner2, none-passive & preventDefault(not open new page)
+          </a>
+        </div>
+      </div>
+</body>
+</html>
