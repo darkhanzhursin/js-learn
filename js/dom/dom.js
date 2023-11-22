@@ -23,8 +23,8 @@ console.log(evenDivs);
 
 for (let i = 0; i < evenDivs.length; i++) {
   evenDivs[i].style.backgroundColor = "green";
-  //   evenDivs[i].style.width = "200px";
-  //   evenDivs[i].style.height = "200px";
+  evenDivs[i].style.width = "200px";
+  evenDivs[i].style.height = "200px";
 }
 
 const navText = document.querySelector("nav h1");
@@ -48,6 +48,7 @@ view2.style.flexWrap = "wrap";
 view2.style.margin = "10px";
 
 while (view2.lastChild) {
+  console.log("dasd" + view2.lastChild);
   view2.lastChild.remove();
 }
 

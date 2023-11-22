@@ -11,6 +11,16 @@ const firstOrderFunc = () => console.log("Hello, I am a First order function");
 const higherOrder = (ReturnFirstOrderFunc) => ReturnFirstOrderFunc();
 higherOrder(firstOrderFunc);
 
+function me() {
+  console.log("My name is Darkhan!");
+}
+
+function highMe() {
+  return f();
+}
+
+highMe(me);
+
 posts.forEach((post) => {
   console.log(post);
 });
