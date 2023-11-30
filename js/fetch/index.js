@@ -121,7 +121,7 @@
 // const otherPromise = new Promise((resolve, reject) => {
 //   setTimeout(function () {
 //     resolve("resolved!");
-//   }, 3000);
+//   }, 1000);
 // });
 
 // otherPromise.then((val) => {
@@ -136,25 +136,26 @@
 // The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
 // Let's take an example of promise chaining for calculating the final result.
 
-const chaining = new Promise(function (resolve, reject) {
-  setTimeout(() => resolve(), 1000);
-})
-  .then((result) => {
-    throw new Error("laqtyr!");
-    console.log(result);
-    return result * 2;
-  })
-  .then((result) => {
-    console.log(result);
-    return result * 3;
-  })
-  .then((result) => {
-    console.log(result);
-    return result * 4; //24
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// const chaining = new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve(2), 1000);
+// })
+//   .then((result) => {
+//     console.log(result);
+//     return result * 2;
+//   })
+//   .then((result) => {
+//     console.log(result);
+//     return result * 3;
+//   })
+//   .then((result) => {
+//     console.log(result);
+//     return result * 4; //24
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
+// chaining;
 
 // In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
 // The initial promise resolves in 1 second,
@@ -172,8 +173,12 @@ const chaining = new Promise(function (resolve, reject) {
 //     return resp.json();
 //   })
 //   .then((data) => {
+//     console.log(data);
+//     let counter = 0;
 //     data.forEach((user) => {
-//       console.log(user);
+//       //console.log(user.username);
+//       //user.address.zipcode = "test" + counter++;
+//       //console.log(user);
 //     });
 //   });
 
@@ -188,8 +193,96 @@ const chaining = new Promise(function (resolve, reject) {
 // const coolFunc = async () => {
 //   const response = await fetch("https://jsonplaceholder.typicode.com/users");
 //   const jsonUserData = await response.json();
-//   console.log(jsonUserData);
+//   //console.log(jsonUserData);
 //   return jsonUserData;
 // };
 
-// coolFunc();
+// const anotherFunc = async () => {
+//   const data = await coolFunc();
+//   myUsers.userList = data;
+//   console.log(myUsers.userList);
+// };
+
+// anotherFunc();
+
+// const getAllUserEmails = async () => {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/users");
+//   const jsonUserData = await response.json();
+
+//   const userEmailArray = jsonUserData.map((user) => {
+//     return user.email;
+//   });
+
+//   //console.log(userEmailArray);
+//   postToSomewhere(userEmailArray);
+// };
+
+// const postToSomewhere = (data) => {
+//   console.log(data);
+// };
+
+// getAllUserEmails();
+
+// 2nd parameter of Fetch is a object
+
+// const getDadJoke = async () => {
+//   const resp = await fetch("https://icanhazdadjoke.com/", {
+//     method: "GET",
+//     headers: {
+//       //Accept: "application/json",
+//       Accept: "text/plain",
+//     },
+//   });
+//   //const jsonData = await resp.json();
+//   const textData = await resp.text();
+//   console.log(textData);
+// };
+
+// const jokeObj = {
+//   data: {
+//     joke: {
+//       id: "Qn5JSOTosad",
+//       joke: "The birth place of poetry is the notebook, the place of death is the Internet!",
+//       permalink: "https://icanhazdadjoke.com/j/Qn5JSOTosad",
+//     },
+//   },
+// };
+
+// const postData = async (obj) => {
+//   const data = await fetch("https://httpbin.org/post", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(obj),
+//   });
+
+//   const jsonResponse = await data.json();
+
+//   console.log(jsonResponse.headers);
+// };
+
+//getDadJoke();
+//postData(jokeObj);
+
+// const requestJoke = async (city) => {
+//   const url = `https://weatherapi-com.p.rapidapi.com/sports.json?q=${city}`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "d0af399766msh72cfe221789eed1p10afc9jsnc08ecac365da",
+//       "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+//     },
+//   };
+//   try {
+//     const response = await fetch(url, options);
+//     const result = await response.text();
+//     console.log(result);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+// requestJoke("London");
+
+console.log([1, 2, 3].shift());

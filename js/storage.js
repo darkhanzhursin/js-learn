@@ -13,6 +13,8 @@ Local storage: It stores data for current origin with no expiration date.
 Session storage: It stores data for one session and the data is lost when the browser tab is closed.
 */
 
+console.log("Here");
+
 const myArray = ["eat", "code", "sleep"];
 const myObject = {
   name: "Darkhan",
@@ -22,9 +24,11 @@ const myObject = {
   },
 };
 
-localStorage.setItem("myLocalStorage", JSON.stringify(myObject));
+localStorage.setItem("dara", JSON.stringify(myObject));
 const myLocalData = JSON.parse(localStorage.getItem("myLocalStorage"));
 console.log(myLocalData);
+// localStorage.clear();
+// localStorage.removeItem("myLocalStorage");
 
 // The session storage provided methods for reading, writing and clearing the session data
 // Save data to sessionStorage
@@ -35,7 +39,7 @@ sessionStorage.setItem("Kazakhstan", "Astana");
 let data = sessionStorage.getItem("key");
 
 // Remove saved data from sessionStorage
-sessionStorage.removeItem("key");
+//sessionStorage.removeItem("key");
 
 // Remove all saved data from sessionStorage
-sessionStorage.clear();
+//sessionStorage.clear();

@@ -8,10 +8,10 @@
 // Syntax: addEventListener(event, function, useCapture);
 
 // const doSomething = () => {
-//   alert("doin something");
+//   alert("doing something");
 // };
 
-// h2.addEventListener("click", doSomething, false);
+// h2.addEventListener("click", doSomething, false); // 1st variant
 // h2.removeEventListener("click", doSomething, false);
 
 // h2.addEventListener("click", (e) => {
@@ -41,7 +41,7 @@ const initApp = () => {
   );
 
   div.addEventListener(
-    "click",
+    "mouseenter",
     (event) => {
       div.classList.toggle("blue");
       div.classList.toggle("black");
@@ -50,7 +50,7 @@ const initApp = () => {
   );
 
   h2.addEventListener(
-    "click",
+    "dblclick",
     (event) => {
       const myText = event.target.textContent;
       myText === "My 2nd View"
@@ -61,7 +61,7 @@ const initApp = () => {
   );
 
   const nav = document.querySelector("nav");
-  nav.addEventListener("mouseover", (e) => {
+  nav.addEventListener("mouseenter", (e) => {
     e.target.classList.toggle("height100");
   });
   nav.addEventListener("mouseout", (e) => {
@@ -70,8 +70,15 @@ const initApp = () => {
 
   const view3 = document.querySelector("#view3");
   const myForm = view3.querySelector("#myForm");
-  myForm.addEventListener("submit", (e) => {
+  myForm.addEventListener("keydown", (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     console.log("submit event");
+  });
+
+  const myBtn = myForm.querySelector(".btn");
+  myBtn.addEventListener("click", (e) => {
+    console.log("Button clicked!");
   });
 };

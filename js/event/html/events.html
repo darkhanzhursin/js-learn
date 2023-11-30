@@ -1,47 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Page</title>
-  <link rel="stylesheet" href="../css/events.css" />
-  <script defer src="../events.js"></script>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Define styles for the slideshow container and images */
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+    }
 
+    .mySlides {
+      display: none;
+    }
+
+    /* Style for navigation buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* Style for the slideshow caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
 <body>
-  <nav>
-    <h1>My Page</h1>
-  </nav>
-  <main>
-    <section id="view1" class="view1">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>10</div>
-      <div>11</div>
-      <div>12</div>
-    </section>
-    <section id="view2" class="view2 darkblue">
-      <div class="black">
-        <h2>My 2nd View</h2>
-      </div>
-    </section>
-    <section id="view3" class="view3">
-      <form id="myForm">
-        <label for="myTextInput">Text Input:</label>
-        <input type="text" id="myTextInput" autocomplete="off" />
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-  </main>
+
+<div class="slideshow-container">
+  <!-- Slides -->
+  <div class="mySlides">
+    <img src="https://media.springernature.com/lw703/springer-static/image/art%3A10.1038%2F528452a/MediaObjects/41586_2015_Article_BF528452a_Figg_HTML.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://media.springernature.com/lw703/springer-static/image/art%3A10.1038%2F528452a/MediaObjects/41586_2015_Article_BF528452a_Figg_HTML.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXYSs2F_0O04sLv8AjIH43Owr2rEIfkFEOA&usqp=CAU" style="width:100%">
+  </div>
+
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+  // JavaScript code for slideshow functionality
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+
+    // If reached the end, go back to the first slide
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    // If at the first slide and trying to go back, go to the last slide
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    // Hide all slides
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    // Display the current slide
+    slides[slideIndex - 1].style.display = "block";
+  }
+</script>
 
 </body>
-
 </html>
